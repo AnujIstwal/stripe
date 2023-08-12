@@ -20,26 +20,6 @@ const PlanComponent = () => {
         }
     };
 
-    const handleCheckout = async () => {
-        const stripe = await getStripe();
-
-        const response = await fetch("/api/stripe", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(["Basic", "Monthly", "Rs 200/mo"]),
-        });
-
-        if (response.statusCode === 500) return;
-
-        const data = await response.json();
-
-        toast.loading("Redirecting...");
-
-        stripe.redirectToCheckout({ sessionId: data.id });
-    };
-
     return (
         <>
             <div className="flex-container">
@@ -147,11 +127,7 @@ const PlanComponent = () => {
                     </div>
                 </div>
             </div>
-            <button
-                type="button"
-                className="main-next-butt"
-                onClick={handleCheckout}
-            >
+            <button type="button" className="main-next-butt">
                 Next
             </button>
         </>
