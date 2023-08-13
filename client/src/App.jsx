@@ -10,7 +10,7 @@ import "./styles/style.css";
 
 import { UserContextProvider } from "../context/userContext";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://stripe-server-rho.vercel.app";
 axios.defaults.withCredentials = true;
 
 function App() {
