@@ -55,14 +55,7 @@ const loginUser = async (req, res) => {
         //check if user exist
         try{
             const user = await User.findOne({ email });
-        }catch(error){
-            console.log(error);
-            res.json({
-               error: "Unable to access user" ,
-            });
-        }
-        
-        if (!user) {
+            if (!user) {
             return res.json({
                 error: "No user found",
             });
@@ -88,6 +81,14 @@ const loginUser = async (req, res) => {
                 error: "Invalid Password or Email",
             });
         }
+        }catch(error){
+            console.log(error);
+            res.json({
+               error: "Unable to access user" ,
+            });
+        }
+        
+        
     } catch (error) {
         console.log(error);
     }
