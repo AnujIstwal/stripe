@@ -14,7 +14,7 @@
             "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
             "status":200,
             "headers": {
-                "Access-Control-Allow-Origin": "https://stripe-server-rho.vercel.app"
+                "Access-Control-Allow-Origin": ["https://stripe-server-rho.vercel.app", "https://richpanel-stripe.vercel.app"]
             }
         }
     ]
