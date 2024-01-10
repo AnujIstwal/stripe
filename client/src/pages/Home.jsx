@@ -13,7 +13,7 @@ const Home = () => {
         if (!user) {
             navigate("/login");
         }
-    }, []);
+    }, [user]);
 
     return (
         <div className="bg-white">
