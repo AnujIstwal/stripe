@@ -2,8 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 
 const Login = () => {
+    const { setUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [data, setData] = useState({
         email: "",
@@ -24,6 +27,7 @@ const Login = () => {
                 toast.error(data.error);
             } else {
                 setData(data);
+                setUser(data);
                 navigate("/");
             }
         } catch (error) {
